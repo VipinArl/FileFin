@@ -21,3 +21,5 @@ A file rename utility for Jellyfin media server.
 1. If you need a new feature, just ask.
 2. If you find a bug, just kill! (kidding, tell me please. will fix it)
 
+### Just for testing
+Testing always gives confidence. The file `test.py` can be used to create a replica of your movie directory with dummy files. You can execute FileFin and check whether it works for you before you rename the actual files. Yes, I did this!
