@@ -23,6 +23,7 @@ class NameEditDialog:
             self.listbox.insert(tk.END, name)
         
         self.listbox.bind('<Double-Button-1>', self.select)
+        self.dialog.bind('<Return>', self.save)
         
         ttk.Button(self.dialog, text="Save", command=self.save).pack(pady=5)
         

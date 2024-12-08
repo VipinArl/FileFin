@@ -260,7 +260,10 @@ class FileFin:
         item = self.tree.selection()[0]
         if item:
             file_name = self.tree.item(item, 'values')[0]
-            predictions = self.get_predictions(file_name)
+            to_predict = file_name
+            if self.tree.item(item, 'values')[2]:
+                to_predict = self.tree.item(item, 'values')[2]
+            predictions = self.get_predictions(to_predict)
             if predictions:
                 self.file_predictions[item] = predictions
                 predicted_str = ' | '.join(p['title'] for p in predictions[:3])
@@ -331,6 +334,8 @@ class FileFin:
                 directory = self.tree.item(parent, 'values')[0]
                 old_name = self.tree.item(item, 'values')[0]
                 new_name = self.selected_names[item]
+                if old_name == new_name or not new_name:
+                    continue
                 
                 old_path = os.path.join(directory, old_name)
                 extension = os.path.splitext(old_name)[1]
