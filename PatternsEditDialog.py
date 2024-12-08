@@ -71,14 +71,15 @@ class PatternsEditDialog:
             replace_patterns = [f"r'{p.strip()}'" for p in self.replace_text.get('1.0', tk.END).strip().split('\n') if p.strip()]
             
             # Create patterns file content
+            line_sep = r"',\n    '"
             content = f"""# Remove common patterns
 remove_patterns = [
-    {',\n    '.join(remove_patterns)}
+    {line_sep.join(remove_patterns)}
 ]
 
 # Replace patterns with spaces
 replace_patterns = [
-    {',\n    '.join(replace_patterns)}
+    {line_sep.join(replace_patterns)}
 ]"""
             
             # Write to file
